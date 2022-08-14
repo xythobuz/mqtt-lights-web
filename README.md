@@ -2,7 +2,7 @@
 
 Simple Bootstrap webinterface to control room lights via MQTT.
 
-## Quick started
+## Getting Started
 
 To set up the MQTT broker credentials, run the following commands:
 

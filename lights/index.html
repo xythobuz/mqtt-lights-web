@@ -17,24 +17,32 @@
                 </div>
             </div>
 
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link" id="nav-livingroom-tab" data-bs-toggle="tab" data-bs-target="#nav-livingroom" type="button" role="tab" aria-controls="nav-livingroom" aria-selected="false">
-                        Livingroom
-                    </button>
-                    <button class="nav-link active" id="nav-bathroom-tab" data-bs-toggle="tab" data-bs-target="#nav-bathroom" type="button" role="tab" aria-controls="nav-bathroom" aria-selected="true">
-                        Bathroom
-                    </button>
-                    <button class="nav-link" id="nav-help-tab" data-bs-toggle="tab" data-bs-target="#nav-help" type="button" role="tab" aria-controls="nav-help" aria-selected="false">
-                        Help
-                    </button>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link" id="nav-livingroom-tab" data-bs-toggle="tab" data-bs-target="#nav-livingroom" type="button" role="tab" aria-controls="nav-livingroom" aria-selected="false">
+                                Livingroom
+                            </button>
+                            <button class="nav-link active" id="nav-bathroom-tab" data-bs-toggle="tab" data-bs-target="#nav-bathroom" type="button" role="tab" aria-controls="nav-bathroom" aria-selected="true">
+                                Bathroom
+                            </button>
+                            <button class="nav-link" id="nav-help-tab" data-bs-toggle="tab" data-bs-target="#nav-help" type="button" role="tab" aria-controls="nav-help" aria-selected="false">
+                                Help
+                            </button>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
+                <div class="col-2"></div>
+            </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-2"></div>
+                <div class="col-8">
                     <hr>
                 </div>
+                <div class="col-2"></div>
             </div>
 
             <div class="tab-content" id="nav-tabContent">
@@ -46,10 +54,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
-                            <p>Lights</p>
+                        <div class="col text-end">
+                            <p>Lights<br><small>(will return to 'Auto' after 2h)</small></p>
                         </div>
-                        <div class="col">
+                        <div class="col text-start">
                             <div class="btn-group" role="group">
                                 <input type="radio" class="btn-check" name="bathroomradio" id="bathroomlightauto" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="bathroomlightauto">
@@ -72,9 +80,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-2"></div>
+                        <div class="col-8">
                             <hr>
                         </div>
+                        <div class="col-2"></div>
                     </div>
 
                     <div class="row">
@@ -84,46 +94,46 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>Temperature</p>
                         </div>
-                        <div class="col" id="bathtemp">
+                        <div class="col text-start" id="bathtemp">
                             <p>Unknown</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>Relative Humidity</p>
                         </div>
-                        <div class="col" id="bathhumid">
+                        <div class="col text-start" id="bathhumid">
                             <p>Unknown</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>tVOC</p>
                         </div>
-                        <div class="col" id="bathtvoc">
+                        <div class="col text-start" id="bathtvoc">
                             <p>Unknown</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
-                            <p>eCo2</p>
+                        <div class="col text-end">
+                            <p>eCO2</p>
                         </div>
-                        <div class="col" id="batheco2">
+                        <div class="col text-start" id="batheco2">
                             <p>Unknown</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>Air Pressure</p>
                         </div>
-                        <div class="col" id="bathpress">
+                        <div class="col text-start" id="bathpress">
                             <p>Unknown</p>
                         </div>
                     </div>
@@ -137,10 +147,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>Workspace Lights</p>
                         </div>
-                        <div class="col">
+                        <div class="col text-start">
                             <div class="btn-group" role="group">
                                 <input type="radio" class="btn-check" name="workspaceradio" id="workspaceon" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="workspaceon">
@@ -155,10 +165,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>TV Lights</p>
                         </div>
-                        <div class="col">
+                        <div class="col text-start">
                             <div class="btn-group" role="group">
                                 <input type="radio" class="btn-check" name="tvradio" id="tvon" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="tvon">
@@ -173,10 +183,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-end">
                             <p>Kitchen Lights</p>
                         </div>
-                        <div class="col">
+                        <div class="col text-start">
                             <div class="btn-group" role="group">
                                 <input type="radio" class="btn-check" name="kitchenradio" id="kitchenon" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="kitchenon">
@@ -198,24 +208,37 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-2"></div>
+                        <div class="col-8">
                             <p>Please wait after opening the page until the buttons change to reflect the current state of the lights. If that doesn't happen after a couple of seconds, there is probably a connection problem.</p>
                         </div>
+                        <div class="col-2"></div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-2"></div>
+                        <div class="col-8">
                             <p><b>Please note:</b> this only works when the MQTT broker and the NodeRED logic are working properly. Also not all web browsers support web socket connections to the MQTT broker. Firefox gives problems, so try a Chromium based browser instead.</p>
                         </div>
+                        <div class="col-2"></div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-2"></div>
+                <div class="col-8">
                     <hr>
                 </div>
+                <div class="col-2"></div>
             </div>
 
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <p class="text-muted">By <a class="text-decoration-none" href="https://www.xythobuz.de">xythobuz</a>. <a class="text-decoration-none" href="https://git.xythobuz.de/thomas/lights-web">Source</a>.</p>
+                </div>
+                <div class="col-2"></div>
+            </div>
         </div>
 
         <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>-->
@@ -275,23 +298,23 @@
             // handle bathroom sensors
             subscribeTopic("bathroom/temperature", function (msg) {
                 const txt = document.querySelector("#bathtemp")
-                txt.innerHTML = "<p>" + msg + " °C</p>"
+                txt.innerHTML = "<p>" + parseInt(msg) + " °C</p>"
             })
             subscribeTopic("bathroom/humidity", function (msg) {
                 const txt = document.querySelector("#bathhumid")
-                txt.innerHTML = "<p>" + msg + " %</p>"
+                txt.innerHTML = "<p>" + parseInt(msg) + " %</p>"
             })
             subscribeTopic("bathroom/pressure", function (msg) {
                 const txt = document.querySelector("#bathpress")
-                txt.innerHTML = "<p>" + msg + " Pa</p>"
+                txt.innerHTML = "<p>" + parseInt(msg / 100.0) + " mbar</p>"
             })
             subscribeTopic("bathroom/tvoc", function (msg) {
                 const txt = document.querySelector("#bathtvoc")
-                txt.innerHTML = "<p>" + msg + "</p>"
+                txt.innerHTML = "<p>" + parseInt(msg) + " ppb</p>"
             })
             subscribeTopic("bathroom/eco2", function (msg) {
                 const txt = document.querySelector("#batheco2")
-                txt.innerHTML = "<p>" + msg + " ppm</p>"
+                txt.innerHTML = "<p>" + parseInt(msg) + " ppm</p>"
             })
         </script>
     </body>
