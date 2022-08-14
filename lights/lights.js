@@ -6,16 +6,14 @@
  */
 
 const options = {
-    // Clean session
     clean: true,
     connectTimeout: 4000,
-    // Auth
     clientId: 'lights-web',
-    username: 'USER_HERE',
-    password: 'PW_HERE',
+    username: mqttUsername,
+    password: mqttPassword,
 }
 const callbacks = []
-const client  = mqtt.connect('wss://iot.fritz.box:8083', options)
+const client  = mqtt.connect(mqttUrl, options)
 
 client.on('connect', function () {
     console.log('MQTT Connected')

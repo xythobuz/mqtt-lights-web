@@ -2,7 +2,15 @@
 
 Simple Bootstrap webinterface to control room lights via MQTT.
 
-Run `localtest.py` and open `http://localhost:8080` to access local test instance.
+## Quick started
+
+To set up the MQTT broker credentials, run the following commands:
+
+    echo "const mqttUsername = 'MQTT_USERNAME'" > lights/credentials.js
+    echo "const mqttPassword = 'MQTT_PASSWORD'" >> lights/credentials.js
+    echo "const mqttUrl = 'wss://MQTT_HOST:MQTT_PORT'" >> lights/credentials.js
+
+Then run `localtest.py` and open `http://localhost:8080` to access local test instance.
 
 ## Sources
 
