@@ -45,6 +45,8 @@
                 <div class="col-2"></div>
             </div>
 
+            <!-- Bathroom Tab Panel -->
+
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-bathroom" role="tabpanel" aria-labelledby="nav-bathroom-tab" tabindex="0">
                     <div class="row">
@@ -139,10 +141,12 @@
                     </div>
                 </div>
 
+                <!-- Livingroom Tab Panel -->
+
                 <div class="tab-pane fade" id="nav-livingroom" role="tabpanel" aria-labelledby="nav-livingroom-tab" tabindex="0">
                     <div class="row">
                         <div class="col">
-                            <p>No controls available yet.</p>
+                            <h2>Actors</h2>
                         </div>
                     </div>
 
@@ -155,6 +159,14 @@
                                 <input type="radio" class="btn-check" name="workspaceradio" id="workspaceon" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="workspaceon">
                                     On
+                                </label>
+                                <input type="radio" class="btn-check" name="workspaceradio" id="workspacebench" autocomplete="off">
+                                <label class="btn btn-outline-info" for="workspacebench">
+                                    Bench
+                                </label>
+                                <input type="radio" class="btn-check" name="workspaceradio" id="workspacepc" autocomplete="off">
+                                <label class="btn btn-outline-success" for="workspacepc">
+                                    PC
                                 </label>
                                 <input type="radio" class="btn-check" name="workspaceradio" id="workspaceoff" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="workspaceoff">
@@ -173,6 +185,14 @@
                                 <input type="radio" class="btn-check" name="tvradio" id="tvon" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="tvon">
                                     On
+                                </label>
+                                <input type="radio" class="btn-check" name="tvradio" id="tvbox" autocomplete="off">
+                                <label class="btn btn-outline-info" for="tvbox">
+                                    Box
+                                </label>
+                                <input type="radio" class="btn-check" name="tvradio" id="tvamp" autocomplete="off">
+                                <label class="btn btn-outline-success" for="tvamp">
+                                    Amp
                                 </label>
                                 <input type="radio" class="btn-check" name="tvradio" id="tvoff" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="tvoff">
@@ -199,7 +219,68 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <hr>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h2>Sensors</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>Temperature</p>
+                        </div>
+                        <div class="col text-start" id="livingtemp">
+                            <p>Unknown</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>Relative Humidity</p>
+                        </div>
+                        <div class="col text-start" id="livinghumid">
+                            <p>Unknown</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>tVOC</p>
+                        </div>
+                        <div class="col text-start" id="livingtvoc">
+                            <p>Unknown</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>eCO2</p>
+                        </div>
+                        <div class="col text-start" id="livingeco2">
+                            <p>Unknown</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>Air Pressure</p>
+                        </div>
+                        <div class="col text-start" id="livingpress">
+                            <p>Unknown</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Help Tab Panel -->
 
                 <div class="tab-pane fade" id="nav-help" role="tabpanel" aria-labelledby="nav-help-tab" tabindex="0">
                     <div class="row">
@@ -245,77 +326,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 
+        <script src="autotab.js"></script>
         <script src="credentials.js"></script>
+        <script src="mqtt.js"></script>
         <script src="lights.js"></script>
-
-        <script>
-            const btnsBath = document.querySelectorAll("#bathroomlightauto, #bathroomlightbig, #bathroomlightsmall, #bathroomlightoff")
-
-            // handle changes to bathroom lights
-            subscribeTopic("bathroom/force_light", function (msg) {
-                // clear all buttons
-                for (const btn of btnsBath) {
-                    btn.checked = false
-                }
-
-                // activate proper button
-                if (msg == "none") {
-                    const btn = document.querySelector("#bathroomlightauto")
-                    btn.checked = true
-                } else if (msg == "big") {
-                    const btn = document.querySelector("#bathroomlightbig")
-                    btn.checked = true
-                } else if (msg == "small") {
-                    const btn = document.querySelector("#bathroomlightsmall")
-                    btn.checked = true
-                } else if (msg == "off") {
-                    const btn = document.querySelector("#bathroomlightoff")
-                    btn.checked = true
-                } else {
-                    console.log("unknown msg " + msg)
-                }
-            })
-
-            // set new bathroom light state
-            for (const btn of btnsBath) {
-                btn.addEventListener('change', function (e) {
-                    if (this.checked) {
-                        if (this == document.querySelector("#bathroomlightauto")) {
-                            setTopic("bathroom/force_light", "none")
-                        } else if (this == document.querySelector("#bathroomlightbig")) {
-                            setTopic("bathroom/force_light", "big")
-                        } else if (this == document.querySelector("#bathroomlightsmall")) {
-                            setTopic("bathroom/force_light", "small")
-                        } else if (this == document.querySelector("#bathroomlightoff")) {
-                            setTopic("bathroom/force_light", "off")
-                        } else {
-                            console.log("unknown btn value " + this.value)
-                        }
-                    }
-                })
-            }
-
-            // handle bathroom sensors
-            subscribeTopic("bathroom/temperature", function (msg) {
-                const txt = document.querySelector("#bathtemp")
-                txt.innerHTML = "<p>" + parseInt(msg) + " °C</p>"
-            })
-            subscribeTopic("bathroom/humidity", function (msg) {
-                const txt = document.querySelector("#bathhumid")
-                txt.innerHTML = "<p>" + parseInt(msg) + " %</p>"
-            })
-            subscribeTopic("bathroom/pressure", function (msg) {
-                const txt = document.querySelector("#bathpress")
-                txt.innerHTML = "<p>" + parseInt(msg / 100.0) + " mbar</p>"
-            })
-            subscribeTopic("bathroom/tvoc", function (msg) {
-                const txt = document.querySelector("#bathtvoc")
-                txt.innerHTML = "<p>" + parseInt(msg) + " ppb</p>"
-            })
-            subscribeTopic("bathroom/eco2", function (msg) {
-                const txt = document.querySelector("#batheco2")
-                txt.innerHTML = "<p>" + parseInt(msg) + " ppm</p>"
-            })
-        </script>
     </body>
 </html>

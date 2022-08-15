@@ -21,3 +21,4 @@ Then run `localtest.py` and open `http://localhost:8080` to access local test in
  * [JS Radio Buttons](https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/)
  * [Python webserver](https://stackoverflow.com/a/52531444)
  * [Re-use socket address](https://stackoverflow.com/a/16641793)
+ * [Store last tab in LocalStorage](https://stackoverflow.com/a/72358089)
