@@ -97,8 +97,8 @@ for (const btn of btnsKitchen) {
     })
 }
 
-const state_light_pc = 0
-const state_light_bench = 0
+let state_light_pc = 0
+let state_light_bench = 0
 
 function setWorkspaceLightsButtons() {
     // clear all buttons
@@ -177,8 +177,8 @@ for (const btn of btnsWorkspace) {
     })
 }
 
-const state_light_amp = 0
-const state_light_box = 0
+let state_light_amp = 0
+let state_light_box = 0
 
 function setTvLightsButtons() {
     // clear all buttons
