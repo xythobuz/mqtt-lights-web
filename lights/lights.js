@@ -212,7 +212,7 @@ subscribeTopic("livingroom/light_amp", function (msg) {
         console.log("unknown livingroom/light_amp msg " + msg)
     }
 
-    setWorkspaceLightsButtons()
+    setTvLightsButtons()
 })
 subscribeTopic("livingroom/light_box", function (msg) {
     if (msg == "on") {
@@ -223,7 +223,7 @@ subscribeTopic("livingroom/light_box", function (msg) {
         console.log("unknown livingroom/light_box msg " + msg)
     }
 
-    setWorkspaceLightsButtons()
+    setTvLightsButtons()
 })
 
 // set new tv light state
