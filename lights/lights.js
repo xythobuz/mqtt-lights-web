@@ -263,3 +263,5 @@ subscribeSensor("livingroom/humidity", "%", "#livinghumid")
 subscribeSensor("livingroom/pressure", "mbar", "#livingpress", 100.0)
 subscribeSensor("livingroom/tvoc", "ppb", "#livingtvoc")
 subscribeSensor("livingroom/eco2", "ppm", "#livingeco2")
+
+subscribeSensorString("giessomat", "#giessomat")

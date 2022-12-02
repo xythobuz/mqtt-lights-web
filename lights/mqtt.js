@@ -54,6 +54,13 @@ function subscribeSensor(topic, unit, selector, divisor = 1.0) {
     })
 }
 
+function subscribeSensorString(topic, selector) {
+    subscribeTopic(topic, function (msg) {
+        const txt = document.querySelector(selector)
+        txt.innerHTML = "<p>" + msg + "</p>"
+    })
+}
+
 function setTopic(topic, message) {
     console.log("Tx \"" + topic.toString() + "\": \"" + message.toString() + "\"")
 
